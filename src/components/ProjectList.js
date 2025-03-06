@@ -3,7 +3,7 @@ const ProjectList=({projects, onProjectDeleted, onProjectUpdated})=>
 {
     return(
         <div>
-            {projects.length===0? <p>Brak projektow</p> : null
+            {projects.length===0? <p>Brak projektów</p> : null
         }
         {projects.map((project)=> 
         (
@@ -13,7 +13,7 @@ const ProjectList=({projects, onProjectDeleted, onProjectUpdated})=>
             onDelete={onProjectDeleted}
             onUpdate={onProjectUpdated}
             />
-        ))};
+        ))}
         </div>
     );
 };

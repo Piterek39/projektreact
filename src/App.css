@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  display: block;
+  width: 500px;
+  margin: 5px 0;
+}
+
+button {
+  margin: 5px;
+}

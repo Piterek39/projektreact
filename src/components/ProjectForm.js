@@ -23,7 +23,7 @@ const ProjectForm= ({onProjectAdded}) => {
             />
             <textarea
             placeholder="Opis projektu"
-            value="description"
+            value={description}
             onChange={(e)=> setDescription(e.target.value)}
             required
             />

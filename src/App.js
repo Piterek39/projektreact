@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import ProjectForm from "./components/ProjectForm";
+import ProjectList from "./components/ProjectList";
+import ProjectService from "./services/ProjectService";
+import "./App.css"
 
-function App() {
+const App = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    setProjects(ProjectService.getProjects());
+  }, []);
+
+  const refreshProjects = () => {
+    setProjects(ProjectService.getProjects());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Zarządzanie projektami</h1>
+      <ProjectForm onProjectAdded={refreshProjects} />
+      <ProjectList projects={projects} onProjectDeleted={refreshProjects} onProjectUpdated={refreshProjects} />
     </div>
   );
-}
+};
 
 export default App;
